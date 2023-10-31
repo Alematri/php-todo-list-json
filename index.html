@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+  <!-- AXIOS -->
+  <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+
+  <!-- VUE JS  -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <!-- FONTAWESOME  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>ToDoList</title>
+</head>
+
+<body>
+  <div id="app" class="sc-contaier">
+
+    <div class="container my-5">
+      <h1 class="text-center">{{title}}</h1>
+
+      <div class="bg-white text-dark rounded-1 p-3">
+      <ul class="list-group ">
+        <li
+          v-for="(item, index) in list"
+          class="list-group-item d-flex justify-content-between"
+        >{{ item }}
+        <button
+          @click="removeTask(index)"
+          class="btn
+          btn-danger"
+        >
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </li>
+      </ul>
+
+      <div class="input-group mb-3 my-3">
+        <input
+          v-model.trim="newTodo"
+          type="text"
+          class="form-control"
+          placeholder="Nuova Task"
+          @keyup.enter="addTask"
+        >
+        <button
+          @click="addTask"
+          class="btn btn-outline-danger"
+          type="button"
+        >Invia</button>
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  
+</body>
+</html>
